@@ -20,9 +20,9 @@ end)
 Citizen.CreateThread(function()
 	Wait(2000)
 	if CoreName == "vorp_core" then
-		local VORPcore = exports.vorp_core:GetCore() 
+		VORPcore = exports.vorp_core:GetCore() 
 	elseif CoreName == "rsg-core" then
-		local RSGCore = exports['rsg-core']:GetCoreObject()
+		RSGCore = exports['rsg-core']:GetCoreObject()
 	end
 
 end)
