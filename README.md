@@ -6,9 +6,13 @@ Autor  https://github.com/ghostrecom
 ### Installation
 
 - Add the resource to your `server.cfg` to make sure it's started at server startup:
-
+  
+### Discord
+- If you need support or suggestions, you can enter the discord of lumen works
+- link: discord.gg/2P3FQ2P6Pp
 
 ## Legal
+
 License
 Lumen_npcdoctor [Standalone]
 
