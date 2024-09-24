@@ -1,8 +1,3 @@
-
-
-
-
-
 local CoreName
 Citizen.CreateThread(function()
   local coreResources = {"vorp_core", "rsg-core", "redem_roleplay"}
@@ -18,7 +13,7 @@ end)
 
 
 Citizen.CreateThread(function()
-	Wait(2000)
+	Wait(1000)
 	if CoreName == "vorp_core" then
 		VORPcore = exports.vorp_core:GetCore() 
 	elseif CoreName == "rsg-core" then
@@ -37,20 +32,20 @@ AddEventHandler('lumen_npcdoctor:checkDoctosOnline', function()
         	CharacterJ = VORPcore.getUser(_src).getUsedCharacter
         	jobJ = CharacterJ.job
 		elseif CoreName == "rsg-core" then
-
 			Player = RSGCore.Functions.GetPlayer(_src)
 			jobJ = Player.PlayerData.job.name
 		end
 
         for k, v in pairs(Config.jobList) do
-          if jobJ == v.name  then
+			
+          if jobJ == v then
                 pass = false
                 break
             end
         end
 
         if not pass then 
-			TriggerClientEvent("lumen_npcdoctor:ShowObjective",_src, Config.Text[1], 4000)
+			TriggerClientEvent('chat:addMessage',_src ,{ color = { 255, 255, 255 }, multiline = true,args = { Config.Text[1]}})
             return 
         end
     end
@@ -63,7 +58,7 @@ RegisterServerEvent('lumen_npcdoctor:revivirTgt')
 AddEventHandler('lumen_npcdoctor:revivirTgt', function()
 	local _source = source
 	if CoreName == "vorp_core" then
-		TriggerClientEvent('vorp_core:Client:OnPlayerRevive', _source)
+		TriggerClientEvent('vorp:resurrectPlayer', _source)
 	elseif  CoreName == "rsg-core" then
         TriggerClientEvent('rsg-medic:client:playerRevive', _source)
 	end
