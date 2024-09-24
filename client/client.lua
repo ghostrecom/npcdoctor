@@ -1,12 +1,16 @@
-
+local cd = false
 
 RegisterCommand(Config.commandDoctor, function(source, args)
-    if IsEntityDead(PlayerPedId()) then
+    if cd then TriggerEvent('chat:addMessage',{ color = { 255, 255, 255 }, multiline = true,args = { Config.Text[4]}}) return end
+    local dead = IsEntityDead(PlayerPedId())
+    if dead then
         TriggerServerEvent('lumen_npcdoctor:checkDoctosOnline')
     else
         TriggerEvent("lumen_npcdoctor:ShowObjective", Config.Text[2], 4000)
     end
-
+    cd = true
+    Wait(10000)
+    cd = false
 end)
 
 
