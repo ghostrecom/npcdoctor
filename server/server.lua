@@ -58,7 +58,7 @@ RegisterServerEvent('lumen_npcdoctor:revivirTgt')
 AddEventHandler('lumen_npcdoctor:revivirTgt', function()
 	local _source = source
 	if CoreName == "vorp_core" then
-		TriggerClientEvent('vorp:resurrectPlayer', _source)
+		VORPcore.Player.Revive(_source)
 	elseif  CoreName == "rsg-core" then
         TriggerClientEvent('rsg-medic:client:playerRevive', _source)
 	end
